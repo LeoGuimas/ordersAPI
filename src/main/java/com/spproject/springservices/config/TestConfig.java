@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Profile;
 
 import com.spproject.springservices.entities.Order;
 import com.spproject.springservices.entities.User;
+import com.spproject.springservices.entities.enums.OrderStatus;
 import com.spproject.springservices.repositories.OrderRepository;
 import com.spproject.springservices.repositories.UserRepository;
 
@@ -30,9 +31,9 @@ public class TestConfig implements CommandLineRunner {
 
         userRepository.saveAll(Arrays.asList(u1,u2));
 
-        Order o1 = new Order (null, Instant.now(), u2);
-        Order o2 = new Order (null, Instant.now(), u1);
-        Order o3 = new Order (null, Instant.now(), u1);
+        Order o1 = new Order (null, Instant.now(),OrderStatus.PAID, u2 );
+        Order o2 = new Order (null, Instant.now(), OrderStatus.CANCELED, u1);
+        Order o3 = new Order (null, Instant.now(),OrderStatus.WAITING_PAYMENT, u1 );
         orderRepository.saveAll(Arrays.asList(o1,o2,o3));
     }
 
