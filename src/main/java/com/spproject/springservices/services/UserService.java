@@ -12,8 +12,12 @@ import com.spproject.springservices.repositories.UserRepository;
 @Service
 public class UserService {
     
+    private final UserRepository repository;
+
     @Autowired
-    private UserRepository repository;
+    public UserService(UserRepository repository) {
+        this.repository = repository;
+    }
     
     public List<User> findAll(){
         return repository.findAll();

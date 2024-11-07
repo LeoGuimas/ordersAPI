@@ -12,8 +12,12 @@ import com.spproject.springservices.repositories.OrderRepository;
 @Service
 public class OrderService {
     
+    private final OrderRepository repository;
+
     @Autowired
-    private OrderRepository repository;
+    public OrderService(OrderRepository repository) {
+        this.repository = repository;
+    }
     
     public List<Order> findAll(){
         return repository.findAll();
