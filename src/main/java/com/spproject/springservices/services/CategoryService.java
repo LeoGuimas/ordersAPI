@@ -11,12 +11,8 @@ import com.spproject.springservices.repositories.CategoryRepository;
 @Service
 public class CategoryService {
 
-    private final CategoryRepository repository;
-
     @Autowired
-    public CategoryService(CategoryRepository repository) {
-        this.repository = repository;
-    }
+    private  CategoryRepository repository;
 
     public List<Category> findAll(){
         return repository.findAll();

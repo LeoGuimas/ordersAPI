@@ -3,7 +3,6 @@ package com.spproject.springservices.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spproject.springservices.entities.User;
@@ -14,7 +13,6 @@ public class UserService {
     
     private final UserRepository repository;
 
-    @Autowired
     public UserService(UserRepository repository) {
         this.repository = repository;
     }

@@ -2,7 +2,6 @@ package com.spproject.springservices.services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spproject.springservices.entities.Product;
@@ -13,7 +12,6 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    @Autowired
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
