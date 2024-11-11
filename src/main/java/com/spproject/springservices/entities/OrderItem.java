@@ -3,6 +3,7 @@ package com.spproject.springservices.entities;
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.spproject.springservices.entities.pk.OrderItemPK;
 
 import jakarta.persistence.EmbeddedId;
@@ -11,6 +12,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_order_item")
+@JsonPropertyOrder({"id", "quantity", "price", "subTotal"})
 public class OrderItem implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -19,7 +21,6 @@ public class OrderItem implements Serializable {
 
         private Integer quantity;
         private Double price;
-
         public OrderItem() {
         }
 
@@ -64,6 +65,13 @@ public class OrderItem implements Serializable {
                 this.price = price;
         }
 
+
+        public Double getSubTotal(){
+                return price * quantity;
+        }
+
+
+        
         @Override
         public int hashCode() {
                 final int prime = 31;
